@@ -9,15 +9,15 @@ function AddTodoForm({ onAddTodo }) {
 
   const handleAddTodo = (event) => {
     event.preventDefault();
+    const newTodoTitle = todoTitle; // Storing todoTitle in new variable
     const newTodo = {
-        title: todoTitle,
+        title: newTodoTitle,
         id: Date.now() // Generate a unique identifier
       };
       console.log('New Todo:', newTodo); // Access newTodo object
       console.log('Form submitted!');
       onAddTodo(newTodo); // Pass newTodo object
       setTodoTitle(''); // Reset todoTitle state after submission
-    // event.target.reset();
   };
 
   return (
