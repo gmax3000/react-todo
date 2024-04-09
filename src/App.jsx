@@ -1,6 +1,6 @@
-import './App.css'
-import TodoList from './TodoList'
-import AddTodoForm from './AddTodoForm'
+import './App.css';
+import TodoList from './TodoList';
+import AddTodoForm from './AddTodoForm';
 import React, { useState, useEffect } from 'react';
 
 const useSemiPersistentState = () => {
@@ -13,20 +13,25 @@ const useSemiPersistentState = () => {
     localStorage.setItem("savedTodoList", JSON.stringify(todoList)); // Save todoList to localStorage
   }, [todoList]); // Adding todoList as a dependency
 
-  return [todoList, setTodoList]
-
+  return [todoList, setTodoList];
 };
 
 function App() {
   const [todoList, setTodoList] = useSemiPersistentState();
+
   const addTodo = (newTodo) => {
     setTodoList(prevTodoList => [...prevTodoList, newTodo]);
   };
+
+  const removeTodo = (id) => {
+    setTodoList(prevTodoList => prevTodoList.filter(todo => todo.id !== id));
+  };
+
   return (
     <div>
       <h1> Todo List </h1>
       <AddTodoForm onAddTodo={addTodo}/> 
-      <TodoList todoList={todoList}/>
+      <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
     </div>
   )
 }

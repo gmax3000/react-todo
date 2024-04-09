@@ -1,12 +1,16 @@
+import React from 'react';
 
-function TodoListItem({ todo }) {
+function TodoListItem({ todo, onRemoveTodo }) {
+  const handleRemoveClick = () => {
+    onRemoveTodo(todo.id);
+  };
 
-    // const { todo } = props; 
-
-    return (
-      <li>{todo.title}</li>
-      
-    );    
+  return (
+    <li>
+      {todo.title}
+      <button type="button" onClick={handleRemoveClick}>Remove</button>
+    </li>
+  );
 }
 
-export default TodoListItem
+export default TodoListItem;
