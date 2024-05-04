@@ -2,6 +2,7 @@ import React from 'react';
 import TodoListItem from './TodoListItem';
 
 function TodoList({ todoList, onRemoveTodo }) {
+  console.log("todo list"+todoList);
   return (
     <ul>
       {todoList.map(todo => (
