@@ -3,7 +3,7 @@
 
 body {
   background-color: #f0f0f0; /* Changed background color */
-  color: #333; /* Default text color */
+  color: rgb(197, 182, 182); /* Default text color */
   font-family: 'Roboto', sans-serif; /* Customized font family */
   margin: 0;
   padding: 0;
@@ -52,7 +52,7 @@ body {
 }
 
 .read-the-docs {
-  color: #888;
+  color: rgb(174, 118, 118);
 }
 
 nav a {
@@ -68,7 +68,7 @@ nav a:hover {
 
 /* Headings customization */
 h1, h2, h3, h4, h5, h6 {
-  color: #222;
+  color: rgb(182, 72, 72);
   font-weight: 700;
   margin-bottom: 0.5em;
 }
@@ -100,7 +100,7 @@ input, button {
 }
 button {
   background-color: #646cff;
-  color: #fff;
+  color: rgb(185, 80, 80);
   cursor: pointer;
   transition: background-color 300ms;
 }
