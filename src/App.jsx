@@ -91,8 +91,26 @@ function App() {
     }
   };
 
-  const removeTodo = (id) => {
+  const removeTodo = async (id) => {
+    try {
+      const options = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer patnzp39me3fiKE1T.04efea600227fdd40de5b5246b29a0a1d9ffb27f2f42211aba6a8ee8c518aad2`
+        },
+        // body: JSON.stringify({ records: [{id, deleted:true}] })
+      };
+      const url = `https://api.airtable.com/v0/appMHcdE4mK1KyPJz/Default?records[]=` + id;
+
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
     setTodoList(prevTodoList => prevTodoList.filter(todo => todo.id !== id));
+    } catch (error) {
+      console.error('Error deliting todo:', error.message);
+    }
   };
 
   return (
